@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./infra/docker/nginx
+    ports:
+      - 9000:8080
+    privileged: true
+    volumes:
+      - ./src/app:/usr/src/app
+    tty: true
+    stdin_open: true
+    command: /bin/sh
